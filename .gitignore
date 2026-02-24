@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+.npm
+.yarn
+
+# Next.js
+.next/
+out/
+build/
+
+# Python / Virtual Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+.pytest_cache/
+
+# Machine Learning / AI Models Cache
+models--*/
+.huggingface/
+*.safetensors
+*.bin
+*.h5
+
+# Databases
+*.db
+*.sqlite3
+*.db-journal
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# OS generated files
+.DS_Store
+Thumbs.db
