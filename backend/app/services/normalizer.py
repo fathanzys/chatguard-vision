@@ -179,10 +179,14 @@ def parse_chat_log(raw_text: str):
             timestamp, sender, msg = m.group(1), m.group(2), m.group(3)
         else:
             timestamp = ""
-            if ":" in ln:
-                sender, msg = ln.split(":", 1)
+            # Fallback for OCR errors: sometimes `:` is read as `;` or `：` (full-width)
+            m_colon = re.split(r'[:;：]', ln, 1)
+            if len(m_colon) == 2:
+                sender = m_colon[0].strip()
+                msg = m_colon[1].strip()
             else:
-                sender, msg = "Unknown", ln
+                sender = "Unknown"
+                msg = ln
 
         normalized = normalize_text(msg)
 

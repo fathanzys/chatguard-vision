@@ -93,31 +93,34 @@ export default function AuditResults({ result }: { result: any }) {
             return (
               <div
                 key={i}
-                className={`group flex flex-col sm:flex-row gap-4 p-5 rounded-2xl transition-all border ${isToxic
+                className={`group grid grid-cols-1 sm:grid-cols-[180px_1fr_120px] gap-4 p-5 rounded-2xl transition-all border w-full ${isToxic
                   ? 'bg-white border-rose-100 hover:border-rose-200 hover:shadow-md'
                   : 'bg-white border-slate-100 hover:border-slate-200 hover:shadow-sm'
                   }`}
               >
-                <div className="flex items-center gap-3 sm:w-48 shrink-0">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-slate-600 font-bold border border-slate-200/50">
+                {/* Kolom 1: Profil & Waktu */}
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 shrink-0 rounded-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-slate-600 font-bold border border-slate-200/50">
                     {sender.charAt(0).toUpperCase()}
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-900 truncate max-w-[120px]" title={sender}>
+                  <div className="min-w-0">
+                    <h4 className="font-semibold text-slate-900 truncate" title={sender}>
                       {sender}
                     </h4>
                     <span className="text-xs text-slate-500 font-mono tracking-wider">{time}</span>
                   </div>
                 </div>
 
-                <div className="flex-1 min-w-0 flex items-center">
-                  <p className="text-slate-700 leading-relaxed text-sm break-words">
+                {/* Kolom 2: Isi Pesan */}
+                <div className="flex items-center">
+                  <p className="text-slate-700 leading-relaxed text-sm whitespace-pre-wrap break-words w-full">
                     {content}
                   </p>
                 </div>
 
-                <div className="shrink-0 flex items-center justify-end sm:w-32">
-                  <div className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider ${isToxic
+                {/* Kolom 3: Status / Badge */}
+                <div className="flex items-center sm:justify-end">
+                  <div className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider whitespace-nowrap ${isToxic
                     ? 'bg-rose-50 text-rose-700 ring-1 ring-inset ring-rose-200'
                     : 'bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200'
                     }`}>
