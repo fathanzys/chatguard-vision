@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* CATATAN PENTING:
+   Karena Anda menggunakan Tailwind v4, jangan gunakan @tailwind base/components/utilities.
+   Cukup satu baris @import di atas.
+*/
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
