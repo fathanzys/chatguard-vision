@@ -41,7 +41,9 @@ export default function RootLayout({
           backgroundSize: "24px 24px"
         }}
       >
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
